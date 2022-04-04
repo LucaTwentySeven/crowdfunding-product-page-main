@@ -1,0 +1,794 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+:root {
+    /* Primary colors */
+    --Moderate-cyan: hsl(176, 50%, 47%);
+    --Dark-cyan: hsl(176, 72%, 28%);
+    /* Neutral colors */
+    --Black: hsl(0, 0%, 0%);
+    --Black-transparent: hsla(0, 0%, 0%, 0.5);
+    --Dark-gray: hsl(0, 0%, 48%);
+    --Border-gray: hsl(0, 0%, 89%);
+    --Background-gray: hsl(0, 0%, 97%);
+    --White: hsl(0, 0%, 100%);
+    /* Container max width */
+    --max-width-desktop: 1100px;
+    --max-width-mobile: 340px;
+}
+
+/* CSS Reset Start */
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    list-style: none;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4 {
+    font-size: 100%;
+    font: inherit;
+}
+
+/* CSS Reset End */
+
+body {
+    font-family: 'Commissioner', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--Black);
+    background-color: var(--Background-gray);
+}
+
+/* Top main header for page */
+.header {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+}
+
+/* Styling hero images inside the header */
+.hero__image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+/* Logo inside the header */
+.navbar__logo {
+    width: 120px;
+}
+
+/* Logo image inside the header */
+.logo__image {
+    width: 100%;
+}
+
+/* navbar inside header */
+.header__navbar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    width: 100%;
+    max-width: var(--max-width-desktop);
+    padding: 5vh 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Black transparent background for mobile menu */
+.header--overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Black-transparent);
+}
+
+/* Black transparent background for mobile menu | When mobile menu is active */
+.header--overlay.active {
+    display: block;
+}
+
+/* Main page navigation */
+.main__menu {
+    display: none;
+    position: fixed;
+    left: 3vh;
+    top: 80px;
+    right: 3vh;
+    text-align: left;
+    background-color: var(--White);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 8px 18px -11px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 8px 18px -11px rgba(0, 0, 0, 1);
+    box-shadow: 0px 8px 18px -11px rgba(0, 0, 0, 1);
+}
+
+/* Menu display property on mobile */
+.main__menu.active {
+    display: block;
+}
+
+/* Main menu links and items */
+/* Main menu link */
+.menu__link {
+    display: inline-block;
+    font-weight: 500;
+    color: var(--Black);
+    text-decoration: none;
+    padding: 4vh 3vh;
+}
+
+/* Main menu list item */
+.menu__item {
+    display: block;
+    border-bottom: 1px solid var(--Border-gray);
+}
+
+/* Main menu list item | Removing border from last element */
+.menu__item:last-of-type {
+    border-bottom: none;
+}
+
+/* Mobile menu | Buttons for hiding and showing menu*/
+.mobile__hamburger,
+.mobile__close {
+    display: block;
+}
+
+.mobile__hamburger--hidden {
+    display: none;
+}
+
+.mobile__close--hidden {
+    display: none;
+}
+
+/* Intro section | Box */
+.box {
+    position: relative;
+    width: 100%;
+    margin-top: -50px;
+}
+
+/* Main conatiner inside box */
+.box__inner {
+    position: relative;
+    width: 100%;
+    max-width: var(--max-width-mobile);
+    margin: auto;
+    padding: 5vh 3vh;
+    background-color: var(--White);
+    border: 1px solid var(--Border-gray);
+    border-radius: 16px;
+}
+
+/* Box in modal with selected pledge | Border 2px colored */
+.box__modal.active {
+    border: 2px solid var(--Moderate-cyan);
+}
+
+/* Box with selected pledge | Properties of element with pledge value and Continue button */
+.box__pledge.active>.modal__info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* No margin with margin :) */
+.box--nomargin {
+    margin-top: 30px;
+}
+
+/* Image inside box */
+.box__image {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Title inside box */
+.box__title,
+.pledge__title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 4vh 0 2vh;
+}
+
+.box__title--aligned-left,
+.box__paragraph--aligned-left {
+    text-align: left;
+}
+
+/* Paragrapgh inside box */
+.box__paragraph,
+.pledge__paragraph {
+    color: var(--Dark-gray);
+    margin: 4vh 0;
+}
+
+/* Closing paragraph inside counters sections  */
+.box__paragraph--close {
+    position: relative;
+    padding-bottom: 3vh;
+    margin: 0.5vh 0 6vh;
+}
+
+/* Setting border after boxes with numbers inside counters section | All without last element */
+.box__numbers:not(.box__numbers:nth-of-type(3))>.box__paragraph--close::after {
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    width: 100px;
+    height: 1px;
+    background-color: var(--Border-gray);
+}
+
+/* Special text properties for counters in counter section and pledges left number  */
+.box__number,
+.pledge__number {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--Black);
+}
+
+/* Special marign for last paragraph element inside counters section */
+.box__numbers:nth-of-type(3)>.box__paragraph--close {
+    margin: 0.5vh 0 2vh;
+}
+
+/* Slider with progress of collected pledges */
+.box__slider {
+    width: 100%;
+}
+
+/* Grayed background for slider */
+.slider__background {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    background-color: var(--Border-gray);
+    border-radius: 20px;
+}
+
+/* Cyan progress bar */
+.slider__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 89%;
+    height: 12px;
+    background-color: var(--Moderate-cyan);
+    border-radius: 20px;
+}
+
+/* Main box with all pledge info */
+.box__pledge {
+    text-align: left;
+    padding: 0 3vh 4vh;
+    margin-bottom: 30px;
+    border: 1px solid var(--Border-gray);
+    border-radius: 16px;
+}
+
+/* Cyan subtitle for pledge */
+.pledge__subtitle {
+    font-weight: 500;
+    color: var(--Moderate-cyan);
+}
+
+/* Element with pledges left info and Select Reward button */
+.pledge__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Postitioning pledges left inside paragraph */
+.pledge__info>.pledge__paragraph {
+    display: flex;
+    align-items: center;
+}
+
+/* Setting margin for all elements with numbers*/
+.pledge__info * .pledge__number {
+    margin-right: 10px;
+}
+
+/* Button | Might be reused */
+.button {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--White);
+    display: inline-block;
+    width: 220px;
+    height: 56px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+/* Primary button */
+.button--primary {
+    background-color: var(--Moderate-cyan);
+}
+
+/* Hover state for priamry button | changes to dark cyan */
+.button--primary:hover {
+    background-color: var(--Dark-cyan);
+}
+
+/* Changing button size for mobile view */
+.button--small {
+    width: 116px;
+}
+
+/* Grayed button as secondary */
+.button--secondary {
+    background-color: var(--Dark-gray);
+}
+
+/* Putting buttons into one box */
+.box__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Mobile width for Bookmark button | Only icon is visible */
+.button__bookmark {
+    width: 56px;
+}
+
+/* Bookmark button svg color */
+.button--circle-fill {
+    fill: #2f2f2f;
+}
+
+/* Bookmark button svg color | Color when button active */
+.button--circle-fill.colored {
+    fill: #3cb4ac;
+}
+
+/* Bookmark button svg color */
+.button--bookmark-fill {
+    fill: #B1B1B1;
+}
+
+/* Bookmark button svg color | Color when button active  */
+.button--bookmark-fill.colored {
+    fill: #ffffff;
+}
+
+/* Paragraph inside Bookmark button | Disabled on mobile */
+.bookmark__paragraph {
+    display: none;
+}
+
+/* Flex attribute for boxes */
+.box--flex {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal items */
+/* Main modal element */
+.modal {
+    display: none;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Black-transparent);
+}
+
+/* Modal closing icon */
+.modal__close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+
+/* Active state for modal | Changing display property */
+.modal.active {
+    display: block;
+}
+
+/* Special margin for box element inside modal */
+.modal>.box,
+.success>.box {
+    margin: 50px 0;
+}
+
+/* Radio input styling | Label is clickable | Input is hidden by opacity to 0 */
+.modal__radio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Label for radio */
+.radio__label {
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Stylign circle instead of hidden radio */
+.radio__checkmark {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    background: var(--White);
+    border: 2px solid var(--Border-gray);
+    border-radius: 50%;
+}
+
+/* Styling selected state | Display set to none */
+.radio__checkmark::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--Moderate-cyan);
+    border-radius: 50%;
+    display: none;
+}
+
+/* Setting display property to block when radio label is clicked */
+.modal__radio:checked~.radio__checkmark::after {
+    display: block;
+}
+
+/* Box with all radio elements | Positioning by flex */
+.box__radio {
+    position: relative;
+    padding-left: 40px;
+    flex-grow: 1;
+    order: 1;
+}
+
+/* Special styling for bix inside modal */
+.box__modal {
+    padding-top: 20px;
+    padding: 0 0 4vh;
+}
+
+/* Subtitle in modal */
+.modal__subtitle {
+    font-weight: 700;
+    color: var(--Moderate-cyan);
+    flex-grow: 1;
+    order: 2;
+    padding-left: 40px;
+}
+
+/* Pledges left info */
+.modal__number {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--Black);
+    margin-right: 6px;
+}
+
+/* Pledges left info */
+.modal__left-p {
+    color: var(--Dark-gray);
+    flex-grow: 8;
+    order: 4;
+    text-align: left;
+    margin-bottom: 3vh;
+}
+
+/* Flex display for modal elements */
+.modal--flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 4vh 4vh 0;
+}
+
+/* Text paragraph for modal */
+.modal__paragraph {
+    color: var(--Dark-gray);
+    margin: 2vh 0 4vh;
+    order: 3;
+}
+
+/* Element with "Enter your pledge", pledge value and continue button inside modal */
+.modal__info {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 4vh 4vh 0;
+    border-top: 1px solid var(--Border-gray);
+}
+
+/* Changing to inline-block button element */
+.modal__info>.button {
+    display: inline-block;
+}
+
+/* Enter your pledge text */
+.info__paragraph {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Styling input with pledge value */
+.modal__number-input {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+    color: var(--Black);
+    display: inline-block;
+    width: 100px;
+    height: 56px;
+    padding-right: 20px;
+    margin-right: 20px;
+    border: 1px solid var(--Border-gray);
+    border-radius: 50px;
+    background-image: url(../images/icon-dollar.svg);
+    background-repeat: no-repeat;
+    background-position: left 10px top 17px;
+}
+
+/* Removing browser input default outline */
+.modal__number-input:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+}
+
+/* Coloring input outline for hover, active, focus states */
+.modal__number-input:hover,
+.modal__number-input:active,
+.modal__number-input:focus {
+    border: 1px solid var(--Moderate-cyan);
+}
+
+/* Modal success items */
+/* Hidden by default confirmation box  */
+.success {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background-color: var(--Black-transparent);
+}
+
+/* Active state for confirmation box */
+.success.active {
+    display: block;
+}
+
+/* Padding reset for success modal */
+.modal__success {
+    padding: 0;
+}
+
+/* Media query for desktop */
+@media only screen and (min-width: 768px) {
+
+    /* Changing box width inside pledge */
+    .box__inner {
+        max-width: var(--max-width-desktop);
+    }
+
+    /* Changing width for success modal */
+    .box__success {
+        max-width: 700px;
+    }
+
+    /* Changing display flex into row on desktop */
+    .box--flex {
+        width: 100%;
+        text-align: left;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        column-gap: 160px;
+    }
+
+    /* Changing counter section border to right on desktop */
+    .box__numbers:not(.box__numbers:nth-of-type(3))>.box__paragraph--close::after {
+        top: -50px;
+        left: 200px;
+        content: '';
+        width: 1px;
+        height: 70px;
+        background-color: var(--Border-gray);
+    }
+
+    /* Changing padding for pledge */
+    .box__inner {
+        padding: 5vh 5vw;
+    }
+
+    /* Radio input padding overwite */
+    .box__radio {
+        padding-left: 60px;
+    }
+
+    /* Repositioning radio checkmark */
+    .radio__checkmark {
+        top: 4px;
+    }
+
+    /* Flex display to row on desktop */
+    .pledge__info {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Overwriting paragraph properties inside modal */
+    .modal__paragraph {
+        width: 100%;
+        order: 4;
+        padding: 0 60px;
+    }
+
+    /* Enter you plage text */
+    .modal__left-p {
+        order: 3;
+        text-align: right;
+    }
+
+    /* Modal flex display change to row on desktop */
+    .modal--flex {
+        flex-direction: row;
+    }
+
+    /* Removing padding for subttile in modal */
+    .modal__subtitle {
+        padding-left: 0;
+    }
+
+    /* Modal info flex change to row on active pledge box */
+    .box__pledge.active>.modal__info {
+        flex-direction: row;
+    }
+
+    /* Changing button small to normal width on desktop */
+    .button--small {
+        width: 220px;
+    }
+
+    /* Special Bookmark button styling */
+    .button__bookmark {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 56px;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--Dark-gray);
+        text-decoration: none;
+        padding: 0 30px 0 0;
+        background-color: var(--Background-gray);
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    /* Adding space between svg and text inside Bookmark button */
+    .button__bookmark>svg {
+        margin-right: 20px;
+    }
+
+    /* Paragraph display inside Bookmark button set to inline-block */
+    .bookmark__paragraph {
+        display: inline-block;
+    }
+
+    /* Changing color on Bookmark button when selected */
+    .bookmark__paragraph.active {
+        color: var(--Moderate-cyan);
+    }
+
+    /* Overwriting styles on desktop screen */
+    .main__menu {
+        display: block;
+        position: fixed;
+        left: none;
+        top: 5vh;
+        right: 3vh;
+        text-align: right;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* Main menu links and items */
+    /* Main menu link */
+    .menu__link {
+        display: inline-block;
+        font-weight: 500;
+        color: var(--White);
+        text-decoration: none;
+        padding: 0 3vh;
+    }
+
+    /* Main menu link hover */
+    .menu__link:hover {
+        text-decoration: underline;
+    }
+
+    /* Main menu list item */
+    .menu__item {
+        display: inline-block;
+        border-bottom: none;
+    }
+
+    /* Mobile menu | Buttons for hiding and showing menu*/
+    .mobile__hamburger {
+        display: none;
+    }
+
+    /* Removing margin for Enter your pledge text */
+    .info__paragraph {
+        margin-bottom: 0;
+    }
+}
+
+
+/* Attribution section */
+.attribution {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4vh 0;
+}
+
+.attribution>p>a {
+    color: #000;
+}
+
+.attribution>p {
+    padding-bottom: 0;
+    margin-bottom: 5px;
+}
