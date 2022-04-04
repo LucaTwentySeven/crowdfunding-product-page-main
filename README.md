@@ -28,7 +28,6 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [https://supraweb.dev/](https://supraweb.dev/demos/crowdfunding-product-page-main/)
 
 ## My process
